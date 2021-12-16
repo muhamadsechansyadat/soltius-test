@@ -41,7 +41,7 @@ class TipeController extends Controller
 
     public function edit($id)
     {
-        $dataOption = Merk::where('where', 1)->select(['id', 'nama'])->get();
+        $dataOption = Merk::select(['id', 'nama'])->get();
         $data = Tipe::where('id', $id)->with(['merk'])->first();
         return view('mst.tipe.edit', compact('data', 'dataOption'));
     }
